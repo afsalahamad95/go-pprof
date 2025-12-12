@@ -23,4 +23,5 @@ func main() {
 	fmt.Println("PauseTotalNs:", stats.PauseTotalNs)
 	fmt.Println("Virtual memory reserved from OS:", stats.Sys)             // in bytes
 	fmt.Println("Virtual memory reserved from OS:", stats.Sys/(1024*1024)) // in MB
+	fmt.Println("number of garbage collections from start:", stats.NumGC)
 }
