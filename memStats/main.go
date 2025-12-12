@@ -24,4 +24,15 @@ func main() {
 	fmt.Println("Virtual memory reserved from OS:", stats.Sys)             // in bytes
 	fmt.Println("Virtual memory reserved from OS:", stats.Sys/(1024*1024)) // in MB
 	fmt.Println("number of garbage collections from start:", stats.NumGC)
+
+	runtime.GC()
+
+	runtime.ReadMemStats(&stats)
+	fmt.Println("Total allocated heap objects:", stats.TotalAlloc) // never goes down, only goes up
+	fmt.Println("Allocated heap objects:", stats.Alloc)
+	fmt.Println("HeapSys:", stats.HeapSys)
+	fmt.Println("HeapIdle:", stats.HeapIdle)
+	fmt.Println("HeapInuse:", stats.HeapInuse)
+	fmt.Println("HeapReleased:", stats.HeapReleased)
+	fmt.Println("NumGC:", stats.NumGC)
 }
